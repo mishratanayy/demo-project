@@ -14,8 +14,5 @@ run:
 	python3 run.py
 
 clean:
-	@echo "Deactivating and deleting virtual environment"
-	ifeq ($(wildcard $(venv)),)
-		deactivate
-		rm -rf venv
-	endif
+	deactivate
+	rm -rf venv
