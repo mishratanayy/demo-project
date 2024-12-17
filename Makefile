@@ -13,6 +13,9 @@ run:
 	@echo "Running server"
 	python3 run.py
 
+image:
+	docker build -t app-main .
+
 clean:
 	deactivate
 	rm -rf venv
