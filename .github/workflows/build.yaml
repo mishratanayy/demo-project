@@ -33,11 +33,3 @@ jobs:
         file: ./Dockerfile # Adjust if your Dockerfile is located elsewhere
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/cp-backend:latest # Adjust with your Docker Hub repository name
-        cache-from: type=registry,ref= ${{ secrets.DOCKER_USERNAME }}/cp-backend:cache # Optional for cache usage
-        cache-to: type=inline # Optional for caching layers
-
-    # Optionally, you can also tag your images with a version (e.g., a Git tag or commit SHA)
-    - name: Tag image with Git commit SHA
-      run: |
-        docker tag ${{ secrets.DOCKER_USERNAME }}/cp-backend:latest ${{ secrets.DOCKER_USERNAME }}/cp-backend:${GITHUB_SHA}
-        docker push ${{ secrets.DOCKER_USERNAME }}/cp-backend:${GITHUB_SHA}
